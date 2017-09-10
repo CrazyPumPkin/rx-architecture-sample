@@ -1,0 +1,12 @@
+<resources>
+
+  <string name="app_name">RxArchitecture Sample</string>
+  <string name="unable_get_permission">We were unable to retrieve your current location</string>
+  <string name="retry">Retry</string>
+  <string name="it_is">It is</string>
+  <string name="in_x">in %1$s</string>
+  <string name="metric">Metric</string>
+  <string name="imperial">Imperial</string>
+  <string name="standard">Standard</string>
+
+</resources>

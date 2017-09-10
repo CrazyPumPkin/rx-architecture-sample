@@ -1,0 +1,78 @@
+apply plugin: 'com.android.application'
+apply from: "$rootDir/gradle/dependencies.gradle"
+apply from: "$rootDir/gradle/configLoader.gradle"
+
+final OW_API_HOST = loadConfigValue(
+        propertyName: 'owApiHost',
+        environmentPropertyName: 'OW_API_HOST',
+        defaultValue: 'https://api.openweathermap.org/')
+final OW_APP_ID = loadConfigValue(
+        propertyName: 'owAppId',
+        environmentPropertyName: 'OW_APP_ID',
+        defaultValue: '35edf1fdb0e0c90e1d691f1a3a36e025')
+
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId "com.afollestad.rxarchiecturesample"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.compileSdk
+        versionCode 1
+        versionName "0.1.0"
+        multiDexEnabled true
+
+        buildConfigField "String", "OW_API_HOST", "\"$OW_API_HOST\""
+        buildConfigField "String", "OW_APP_ID", "\"$OW_APP_ID\""
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation "com.android.support:appcompat-v7:$versions.supportLib"
+    implementation "com.google.android.gms:play-services-location:$versions.playServices"
+
+    implementation "io.reactivex.rxjava2:rxjava:$versions.rxJava"
+    implementation "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid"
+    implementation "com.jakewharton.rxbinding2:rxbinding:$versions.rxBinding"
+    implementation "com.tbruyelle.rxpermissions2:rxpermissions:$versions.rxPermissions"
+    implementation "com.f2prateek.rx.preferences2:rx-preferences:$versions.rxPreferences"
+
+    implementation "com.squareup.okhttp3:okhttp:$versions.okHttp"
+    implementation "com.squareup.okhttp3:logging-interceptor:$versions.okHttpLogging"
+    implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofitAdapter"
+    implementation "com.google.code.gson:gson:$versions.gson"
+    implementation "com.squareup.retrofit2:converter-gson:$versions.gsonRetrofit"
+    implementation "com.google.guava:guava:$versions.guava"
+
+    implementation "com.google.dagger:dagger:$versions.dagger"
+    annotationProcessor "com.google.dagger:dagger-compiler:$versions.dagger"
+
+    implementation "com.google.auto.value:auto-value:$versions.autoValue"
+    annotationProcessor "com.google.auto.value:auto-value:$versions.autoValue"
+
+    implementation "com.jakewharton:butterknife:$versions.butterKnife"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$versions.butterKnife"
+
+    annotationProcessor "com.ryanharter.auto.value:auto-value-gson:$versions.autoValueGson"
+    implementation "com.ryanharter.auto.value:auto-value-gson:$versions.autoValueGson"
+
+    annotationProcessor "com.ryanharter.auto.value:auto-value-parcel:$versions.autoValueParcel"
+
+    testImplementation "junit:junit:$versions.junit"
+    testImplementation "com.google.truth:truth:$versions.truth"
+    testImplementation "org.mockito:mockito-core:$versions.mockito"
+}

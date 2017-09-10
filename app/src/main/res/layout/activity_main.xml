@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <LinearLayout
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/content_inset"
+    android:padding="@dimen/content_inset_double"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:fontFamily="sans-serif"
+      android:gravity="center"
+      android:text="@string/it_is"
+      android:textColor="?colorAccent"
+      android:textSize="@dimen/small_text_size"/>
+
+    <TextView
+      android:id="@+id/temperature"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:fontFamily="sans-serif-medium"
+      android:gravity="center"
+      android:textColor="?colorAccent"
+      android:textSize="@dimen/large_text_size"
+      tools:text="60"/>
+
+    <TextView
+      android:id="@+id/city"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:fontFamily="sans-serif"
+      android:gravity="center"
+      android:textColor="?colorAccent"
+      android:textSize="@dimen/medium_text_size"
+      tools:text="in Minneapolis"/>
+
+  </LinearLayout>
+
+  <LinearLayout
+    android:id="@+id/main_error_group"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:visibility="gone">
+
+    <TextView
+      android:id="@+id/main_error"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:padding="@dimen/content_inset"
+      android:fontFamily="sans-serif-medium"
+      android:textSize="@dimen/medium_text_size"/>
+
+    <Button
+      android:id="@+id/retry_button"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/content_inset"
+      android:fontFamily="sans-serif"
+      android:text="@string/retry"
+      android:textSize="@dimen/medium_text_size"/>
+
+
+  </LinearLayout>
+
+  <ProgressBar
+    android:id="@+id/main_progress"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    tools:visibility="gone"/>
+
+</FrameLayout>

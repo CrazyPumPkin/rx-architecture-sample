@@ -1,0 +1,9 @@
+ext.loadConfigValue = { Map values ->
+    def propertyName = values.propertyName ?: {
+        throw new NullPointerException('propertyName == null')
+    }()
+    def systemEnvironmentName = values.environmentPropertyName ?: ''
+    def defaultValue = values.defaultValue ?: ''
+
+    project.hasProperty(propertyName) ? project.getProperty(propertyName) : System.getenv(systemEnvironmentName) ?: defaultValue
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <group android:checkableBehavior="single">
+
+    <item
+      android:id="@+id/imperial"
+      android:checkable="true"
+      android:title="@string/imperial"/>
+
+    <item
+      android:id="@+id/metric"
+      android:checkable="true"
+      android:title="@string/metric"/>
+
+    <item
+      android:id="@+id/standard"
+      android:checkable="true"
+      android:title="@string/standard"/>
+
+  </group>
+
+</menu>
